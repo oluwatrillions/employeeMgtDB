@@ -1,23 +1,28 @@
 const express = require('express')
 const app = express()
+const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const cors = require('cors')
-const dotenv = require('dotenv');
+const dotenv = require('dotenv')
+const uuid = require('uuid')
+const controllers = require('../controllers/employeesController')
+const schema = require('../model/Schema')
 
-dotenv.config();
+
+
+
+require('dotenv').config({path: '..config/.env'});
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
 app.use(cors());
 
+console.log(uuid.v4());
 
-app.get('/', (req, res) => {
-    res.send('This is the home page');
-})
+app.use('/employees', require('../routes/employeeRoutes'))
 
-
-const PORT = process.env.PORT || 3500
+const PORT = process.env.PORT 
 
 app.listen(PORT, (req, res) => {
     console.log(`server is running on port ${PORT}`);
