@@ -5,8 +5,11 @@ const path = require('path')
 const bcrypt = require('bcrypt')
 const cors = require('cors')
 const uuid = require('uuid')
-require('dotenv').config({ path: path.resolve(__dirname, '.env')})
+const moment = require('moment')
+require('dotenv').config({ path: '.env'})
 const PORT = process.env.PORT 
+
+
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());

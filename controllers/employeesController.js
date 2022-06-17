@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Schema = require('../model/employeeSchema')
+const employeeBank = require('../model/EmployeeSchema')
 
 const getEmployees = (req, res, next) => {
     res.send('This is the employees home')
@@ -13,7 +13,7 @@ const registerEmployees = async (req, res, next) => {
             email: req.body.email,
             password: req.body.password,
             age: req.body.age,
-            degree: req.body.degree,
+            degree: req.body.degree
         })
     } catch (error) {
         console.log(error);
